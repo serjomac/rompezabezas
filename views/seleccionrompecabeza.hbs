@@ -1,0 +1,103 @@
+<head>
+    <meta charset="utf-8">
+    <title>jQuery snapPuzzle Plugin</title>
+    <meta name="description" content="A jQuery plugin for turning an image into a jigsaw puzzle game.">
+    <link rel="shortcut icon" href="//pixabay.com/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/yahoo/pure-release/v0.6.0/pure-min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/yahoo/pure-release/v0.6.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<div class="container">
+    <div class="col-lg-12" id="pile">
+        {{#each images}}  
+        <td> <a href="#"><img data-toggle="modal" data-target="#exampleModal" width="30%" onclick="demo({{id}})" src="{{url}}" ></a></td>
+        {{/each}}
+        
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control hidden" placeholder="Enter a todo" id="seleccion" name="seleccion">
+    </div>
+    <div>Puntaje: </div><div id="puntaje"></div>   
+    <!--<div class="row">
+        <a href="#" class="restart-puzzle btn btn-info col-lg-3" data-grid="2">2x2</a>
+        <a href="#" class="restart-puzzle btn btn-info col-lg-3" data-grid="3">3x3</a>
+        <a href="#" class="restart-puzzle btn btn-info col-lg-3" data-grid="4">4x4</a>
+        <a href="#" class="restart-puzzle btn btn-info col-lg-3" data-grid="5">5x5</a>
+    </div>-->
+</div> 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Seleccione dificultad</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+            <div class="row">
+                <button onclick="selJuego(2)" class="restart-puzzle" data-grid="2">2x2</button>
+                <button onclick="selJuego(3)" class="restart-puzzle" data-grid="3">3x3</button>
+                <button onclick="selJuego(4)" class="restart-puzzle" data-grid="4">4x4</button>
+                <button onclick="selJuego(5)" class="restart-puzzle" data-grid="5">5x5</button>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div>
+     <button disabled="disabled" style="color:#FF0000; background-color: blue;"><a style="color:white;" href="/">Salir</a></button>
+
+<script>
+    function demo(id){
+        document.getElementById("seleccion").value = id;
+    }
+
+    function selJuego(variable){
+
+            let intentos = 0;
+            localStorage.setItem("intentos", intentos);
+
+            let sel = document.getElementById("seleccion").value;
+            console.log($('#seleccion').val());
+            localStorage.setItem("juego", sel);
+            localStorage.setItem("piezas", variable);
+            console.log(variable);
+            $.getJSON( "http://localhost:3000/juego/" + sel, function( data ) {
+                console.log(data)
+            });
+            
+
+            window.location.href = 'juego/'+sel;
+    }
+
+    
+
+</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="/js/jquery.snap-puzzle.js"></script>
+    <script src="/js/app.js"></script>
+
+    <script>
+
+    let url = window.origin;
+
+        $.getJSON( url+"/seleccionrompecabeza/puntos/"+localStorage.getItem("usuario"), function( data ) {
+
+            console.log(data)
+
+            $("#puntaje").html("<p>"+data.user.puntaje+"</p>");
+
+        });
+
+    </script>

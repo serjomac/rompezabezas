@@ -1,0 +1,38 @@
+ <button disabled="disabled"><a href="/imagenes">regresar</a></button>
+ <form class="form" action="/imagenes" method="post">
+
+ <div class="form-group">
+    <label for="description">Descripcion</label>
+    <input type="text" class="form-control" id="descripcion" placeholder="Enter a todo" name="descripcion">
+  </div>
+ 
+  <div class="form-group">
+    <label for="title">URL</label>
+    <input type="file" class="form-control" id="urlImg">
+  </div>
+  
+   <div class="form-group">
+    <input style="visibility: hidden;" type="input" class="form-control" placeholder="Enter a todo" id="urlInput" name="url">
+  </div>
+
+
+    
+   
+   <div class="form-group">
+    <label for="description">Id Audio</label>
+    <input type="number" class="form-control" id="id_audios" placeholder="Enter a todo" name="id_audios">
+  </div>
+   
+
+
+  
+  <button type="submit" class="btn btn-default btn-success">
+    Crear
+  </button>
+</form>
+
+
+{{#each scripts}}
+   <script>console.log("Entre ctm")</script>
+  <script src="{{script}}"></script>
+{{/each}}

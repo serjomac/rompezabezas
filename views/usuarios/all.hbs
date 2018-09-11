@@ -1,0 +1,11 @@
+
+ <button disabled="disabled"><a href="/">regresar</a></button>
+
+ <ul class="list-group">
+  {{#each users}}
+    <a href="/usuarios/{{id}}" class="list-group-item">{{nombre}}</a>
+  {{/each}}
+</ul>
+<a type="button" class="btn btn-default btn-primary" href="/usuarios/new">
+  nuevo usuario
+</a>

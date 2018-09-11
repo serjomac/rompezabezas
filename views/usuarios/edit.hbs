@@ -1,0 +1,37 @@
+
+
+<button disabled="disabled"><a href="/usuarios">regresar</a></button>
+
+<form class="form" action="/usuarios/{{id}}?_method=PUT" method="post">
+ <div class="form-group">
+    <label for="description">Id</label>
+    <input value="{{id_rols}}" type="number" class="form-control" id="title" placeholder="Id" name="id_rols">   
+  </div>
+  <div class="form-group">
+    <label for="title">Nombre</label>
+    <input value="{{nombre}}" type="text" class="form-control" id="title" placeholder="Nombre" name="nombre">
+  </div>
+  <div class="form-group">
+    <label for="description">Usuario</label>
+    <input value="{{usuario}}" type="text" class="form-control" id="title" placeholder="Usuario" name="usuario">
+    
+  </div>
+   
+   <div class="form-group">
+    <label for="description">Clave</label>
+    <input value="{{clave}}" type="password" class="form-control" id="title" placeholder="Clave" name="clave">   
+  </div>
+  <div class="form-group">
+    <label for="description">Puntaje</label>
+    <input value="{{puntaje}}" type="number" class="form-control" id="title" placeholder="Puntaje" name="puntaje">   
+  </div>
+  <div class="form-group">
+    <label for="description">URL imagen</label>
+    <input value="{{urlimagen}}" type="text" class="form-control" id="title" placeholder="URL imagen" name="urlimagen">   
+  </div>
+  
+  
+  <button type="submit" class="btn btn-default btn-danger">
+    actualizar
+  </button>
+

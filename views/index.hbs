@@ -1,0 +1,29 @@
+<div class="text-center row">
+    <img src="images/letrero.png" class="rounded letrero" alt="...">
+</div>
+<table class="container">
+          <!--
+           <tr id="caca2">
+            <td><a href=""><img class="rounded-circle" src="images/daniel.png" alt="champ"></a></td>
+            <td><img class="rounded-circle" src="images/josty.png" alt="gossy"></td>
+            <td><img class="rounded-circle" src="images/joss.png" alt="romp"></td>
+            <td><img class="rounded-circle" src="images/malats.png" alt="massap"></td>
+        </tr>
+        
+        -->
+        {{#each users}}
+              
+              <td><a href="seleccionrompecabeza" onclick="guardarUser({{id}})" id="avatar"><img class="rounded-circle" src="{{urlimagen}}" ></a></td>
+                <td>{{puntaje}}</td>
+        {{/each}}  
+    </table>
+
+    <div class="row d-flex justify-content-center pie">
+            <a href="login">Ir a Administración</a>
+    </div>
+
+<script>
+    function guardarUser(variable){
+        localStorage.setItem("usuario", variable);
+    }
+</script>
