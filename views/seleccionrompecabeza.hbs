@@ -68,7 +68,8 @@
             localStorage.setItem("juego", sel);
             localStorage.setItem("piezas", variable);
             console.log(variable);
-            $.getJSON( "http://localhost:3000/juego/" + sel, function( data ) {
+            let url = window.origin;
+            $.getJSON( url+ "/juego/" + sel, function( data ) {
                 console.log(data)
             });
             
