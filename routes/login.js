@@ -56,8 +56,7 @@ router.post('/', (req, res) => {
      .then(function(result) {
        if (!result || !result[0])  {  // not found!
          console.log("Invalido user"); 
-           res.redirect('login');
-         return;
+           res.render('login');
        }
        var pass = result[0].clave;
        if (password === pass) {
