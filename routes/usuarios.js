@@ -6,6 +6,10 @@ const knex = require('../db/knex');
 
 var scripts = [{ script: '/js/image.js'}];
 
+
+
+
+
 /* This router is mounted at /todo */
 router.get('/', (req, res) => {
   knex('users')

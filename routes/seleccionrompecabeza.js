@@ -3,8 +3,6 @@ const router = express.Router();
 const knex = require('../db/knex.js');
 
 
-
-
 router.get('/', function(req, res){
              
     knex('images')

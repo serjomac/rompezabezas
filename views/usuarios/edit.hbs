@@ -1,6 +1,20 @@
 
 
-<button disabled="disabled"><a href="/usuarios">regresar</a></button>
+
+<script >
+       
+        var usuario = localStorage.getItem("usuarioLog");
+        
+        if(usuario==null || usuario==undefined){
+             console.log(usuario);
+              window.location="/login"
+             //window.location="/user/login"
+        }
+        
+      
+    
+</script>
+
 
 <form class="form" action="/usuarios/{{id}}?_method=PUT" method="post">
  <div class="form-group">
@@ -25,9 +39,16 @@
     <label for="description">Puntaje</label>
     <input value="{{puntaje}}" type="number" class="form-control" id="title" placeholder="Puntaje" name="puntaje">   
   </div>
+  
+
+
   <div class="form-group">
-    <label for="description">URL imagen</label>
-    <input value="{{urlimagen}}" type="text" class="form-control" id="title" placeholder="URL imagen" name="urlimagen">   
+    <label for="title">Avatar</label>
+    <input value="{{url}}" type="file" class="form-control" id="urlImg">
+  </div>
+  
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Enter a todo" id="urlInput" name="url">
   </div>
   
   
