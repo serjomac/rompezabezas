@@ -12,15 +12,34 @@
         
         -->
         {{#each users}}
-            <td><p style="position:absolute; color: blue; font-size: 20px;"> tiene {{puntaje}} puntos</p> <a href="seleccionrompecabeza" onclick="guardarUser({{id}})" id="avatar"><img class="rounded-circle" src="{{urlimagen}}" ></a> </td>
+            <td id="tabla"><p class="p" style="position:absolute; color: blue; font-size: 20px;"> tiene {{puntaje}} puntos</p> <a href="seleccionrompecabeza" onclick="guardarUser({{id}})" id="avatar"><img class="rounded-circle" id="imgen" src="{{urlimagen}}" ></a> </td>
             
         {{/each}}  
     </table>
-
+    
     <div class="row d-flex justify-content-center pie">
             <a href="login">Ir a Administración</a>
     </div>
-
+  
+<style>
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class="p"] {
+        
+        width: 50%;
+      font-size: 3px;
+       
+    }
+    [id="tabla"] {
+        margin-left:50%;
+        display:inline-block;
+        width:100%;
+        position:relative;
+       
+    }
+   
+}
+</style>
 <script>
     localStorage.clear();
     function guardarUser(variable){
