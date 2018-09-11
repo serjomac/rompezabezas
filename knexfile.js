@@ -3,7 +3,7 @@
 module.exports = {
   development: {
     client: 'postgresql',
-    connection: 'postgres://postgres:postgres@localhost/dbPuzzle'
+    connection: 'postgres://postgres:admin@localhost/dbPuzzle'
   },
   production: {
     client: 'postgresql',

@@ -17,8 +17,13 @@ var options = require('./routes/options');
 var login = require('./routes/login');
 var seleccionrompecabeza = require('./routes/seleccionrompecabeza');
 var juego = require('./routes/juego');
+var sesion = require("express-session"); 
+
 
 var app = express();
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

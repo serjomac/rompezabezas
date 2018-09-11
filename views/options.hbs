@@ -1,30 +1,6 @@
-
-<script>
-    
-var xhr = new XMLHttpRequest();
-let z = window.origin;
-
-xhr.open('GET', z+"/user/login/{{user}}", true);
-xhr.send();
- 
-xhr.onreadystatechange = processRequest;
- 
-function processRequest(e) {
- if (xhr.readyState == 4 && xhr.status == 200) {
-        var response = JSON.parse(xhr.responseText);
-        console.log(response)
-        localStorage.setItem('usuarioLog', JSON.stringify(response))
-        console.log(response)
-      window.location="/"
-    }
-}
-</script>
-
-
 <ul class="list-group">
     <a href="usuarios" class="list-group-item">Usuarios</a>
     <a href="audios" class="list-group-item">Audios</a>
     <a href="roles" class="list-group-item">Roles</a>
     <a href="imagenes" class="list-group-item">Imagenes</a>
 </ul>
-
