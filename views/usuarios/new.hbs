@@ -1,7 +1,21 @@
 
- <button disabled="disabled"><a href="/usuarios">regresar</a></button>
 
- <form class="form" action="/usuarios" method="post">
+
+<script >
+       
+        var usuario = localStorage.getItem("usuarioLog");
+        
+        if(usuario==null || usuario==undefined){
+             console.log(usuario);
+              window.location="/login"
+             //window.location="/user/login"
+        }
+        
+      
+    
+</script>
+
+<form class="form" action="/usuarios" method="post">
 
  <div class="form-group">
     <label for="description">id rol</label>
@@ -32,12 +46,8 @@
   </div>
    
    <div class="form-group">
-    <label for="title">Inserte Avatar</label>
-    <input type="file" class="form-control" id="urlImg">
-  </div>
-  
-   <div class="form-group">
-    <input style="visibility: hidden;" type="input" class="form-control" placeholder="Enter a todo" id="urlInput" name="url">
+    <label for="description">Url imagen</label>
+    <input type="text" class="form-control" id="urlImagen" placeholder="Url imagen" name="urlimagen">
   </div>
   
   <button type="submit" class="btn btn-default btn-success">

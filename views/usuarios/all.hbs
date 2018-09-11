@@ -1,7 +1,22 @@
 
- <button disabled="disabled"><a href="/">regresar</a></button>
 
- <ul class="list-group">
+
+<script >
+       
+        var usuario = localStorage.getItem("usuarioLog");
+        
+        if(usuario==null || usuario==undefined){
+             console.log(usuario);
+              window.location="/login"
+             //window.location="/user/login"
+        }
+        
+      
+    
+</script>
+
+
+<ul class="list-group">
   {{#each users}}
     <a href="/usuarios/{{id}}" class="list-group-item">{{nombre}}</a>
   {{/each}}

@@ -6,6 +6,10 @@ const knex = require('../db/knex');
 
 var scripts = [{ script: '/js/image.js'}];
 
+
+
+
+
 /* This router is mounted at /todo */
 router.get('/', (req, res) => {
   knex('users')
@@ -77,7 +81,7 @@ function validateTodoRenderError(req, res, callback) {
       usuario: req.body.usuario,
       clave: req.body.clave,
       puntaje: req.body.puntaje,
-      urlimagen: req.body.url
+      urlimagen: req.body.urlimagen
     };
     
     callback(users);

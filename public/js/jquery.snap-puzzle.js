@@ -79,7 +79,7 @@
 
             o.puzzle_class = puzzle_class;
             that.data('options', o);
-          $("#intentos").text("Tiene: " + ((o.rows * o.columns)+4)  + " Intentos");
+
             for (var x=0; x<o.rows; x++) {
                 for (var y=0; y<o.columns; y++) {
                     $('<div class="snappuzzle-piece '+puzzle_class+'"/>').data('pos', x+'_'+y).css({
@@ -99,8 +99,7 @@
                             inte++;
                             localStorage.setItem("intentos", inte)
                             console.log("INTENTOS", inte);
-                            $("#intentos").text("Tiene: " + ((o.rows * o.columns)+4-inte)  + "Intentos");
-                            if (inte === ((o.rows * o.columns)+5)){
+                            if (inte === ((o.rows * o.columns)+4)){
                                 alert("PERDISTE");
                                 window.location = '/seleccionrompecabeza';
                             }
@@ -108,7 +107,7 @@
                         stack: '.snappuzzle-piece',
                         containment: o.containment
                     }).appendTo(pile).data('lastSlot', pile);
-                    
+
                     $('<div class="snappuzzle-slot '+puzzle_class+'"/>').data('pos', x+'_'+y).css({
                         width: pieceWidth,
                         height: pieceHeight,
@@ -136,14 +135,11 @@
                                 ui.draggable.css({opacity: 0, cursor: 'default'}).draggable('disable');
                                 //if ($('.snappuzzle-piece.correct.'+puzzle_class).length == o.rows*o.columns) o.onComplete(that);
                                 if ($('.snappuzzle-piece.correct.'+puzzle_class).length == o.rows*o.columns)
-                                    { 
-                                        $
+                                    {
                                         o.onComplete(that);
-                                        var reicinarIntentos = 0;
-                                        localStorage.setItem("intentos", reicinarIntentos)
                                         let url = window.origin;
                                         $.post( url+"/seleccionrompecabeza/puntos/"+localStorage.getItem("usuario"), function( data ) {
-                                          
+
                                             //console.log(data)
                                             //$("#puntaje").html("<p>"+data.user.puntaje+"</p>");
                                 
