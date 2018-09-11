@@ -1,5 +1,17 @@
 <button disabled="disabled"><a id="regresar" href="/">Cerrar sesión</a></button>
-
+<script >
+       
+        var usuario = localStorage.getItem("usuarioLog");
+        
+        if(usuario==null || usuario==undefined){
+             console.log(usuario);
+              window.location="/login"
+             //window.location="/user/login"
+        }
+        
+      
+    
+</script>
 <script>
     
 var xhr = new XMLHttpRequest();
