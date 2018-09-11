@@ -66,7 +66,7 @@ router.post('/', (req, res) => {
          res.render('localstorage', {user: user});
        } else {
          console.log("authenticado");
-           res.render('login');
+           res.redirect('login');
        }
      })
      .catch(function(error) {
