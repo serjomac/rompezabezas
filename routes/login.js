@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
      .then(function(result) {
        if (!result || !result[0])  {  // not found!
          console.log("Invalido user"); 
-           res.render('login');
+           return;
        }
        var pass = result[0].clave;
        if (password === pass) {
@@ -65,7 +65,8 @@ router.post('/', (req, res) => {
            
          res.render('localstorage', {user: user});
        } else {
-         console.log("authenticado"); 
+         console.log("authenticado");
+           res.render('login');
        }
      })
      .catch(function(error) {
