@@ -1,4 +1,4 @@
-<button disabled="disabled"><a href="/">regresar</a></button>
+<button disabled="disabled"><a id="regresar" href="/">regresar</a></button>
 
 <script>
     
@@ -19,6 +19,10 @@ function processRequest(e) {
       window.location="/"
     }
 }
+
+$("#regresar").click(function(){
+    localStorage.removeItem("usuarioLog");
+})
 </script>
 
 
