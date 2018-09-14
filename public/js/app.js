@@ -4,6 +4,7 @@
         var row; var col;
 
         function start_puzzle(x){
+          console.log(x);
             if (x == 4) {
                 row = 2;
                 col = 2;
