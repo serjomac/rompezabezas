@@ -55,9 +55,6 @@
         let url = window.origin;
 
         $.getJSON( url+"/seleccionrompecabeza/piezas/"+localStorage.getItem("juego"), function( data ) {
-
-            alert(data.image.piezas)
-
             localStorage.setItem("piezas", data.image.piezas);
             
             if (localStorage.getItem("piezas") == data.image.piezas){
