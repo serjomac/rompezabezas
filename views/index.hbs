@@ -12,8 +12,7 @@
         
         -->
         {{#each users}}
-            <td id="tabla"><p class="p" style="position:absolute; color: blue; font-size: 20px;"> tiene {{puntaje}} puntos</p> <a href="seleccionrompecabeza" onclick="guardarUser({{id}})" id="avatar"><img class="rounded-circle" id="imgen" src="{{urlimagen}}" ></a> </td>
-            
+            <td id="tabla"><img class="total" src="../images/total.png" alt="total de puntos"><p>{{puntaje}}</p><a href="seleccionrompecabeza" onclick="guardarUser({{id}})" id="avatar"><img class="rounded-circle" id="imgen" src="{{urlimagen}}" ></a> </td>
         {{/each}}  
     </table>
     

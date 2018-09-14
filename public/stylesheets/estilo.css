@@ -31,12 +31,26 @@ h1{
 }
 
 .letrero{
-    height: 25vw;
+    height: 15vw;
     margin: 0 auto;
     min-height: 40%;
 }
-
-.caca{
-    margin: auto;
+.botones{
+    height: 10vw;
+    min-height: 30%;
 }
+.total{
+    height: 4vw;
+    min-height: 10%;
+}
+
+.seleccion{
+    height: 15vw;
+    margin: 0 auto;
+}
+
+.imagenesr{
+    border: 20px ridge #81d4e1;
+}
+
 

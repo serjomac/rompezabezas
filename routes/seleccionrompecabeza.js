@@ -31,6 +31,20 @@ router.get('/', function(req, res){
     
   });
 
+  router.get('/piezas/:id', function(req, res){
+
+    const id = req.params.id;
+
+    knex('images')
+     .where('id', id)
+     .first()
+     .then( image => {
+      res.json({image: image});
+    });
+    
+  });
+
+
   router.post('/puntos/:id', function(req, res){
 
     const id = req.params.id;

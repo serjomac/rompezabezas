@@ -18,10 +18,18 @@
 
 
 <form class="form" action="/usuarios/{{id}}?_method=PUT" method="post">
- <div class="form-group">
-    <label for="description">Id</label>
-    <input value="{{id_rols}}" type="number" class="form-control" id="title" placeholder="Id" name="id_rols">   
-  </div>
+
+<div class="form-group">
+   <label for="description">Rol</label>
+    <select name="id_rols">
+      <option value="1">Niño</option>
+      <option value="2">Administrador</option>
+    </select>
+</div>
+
+
+
+
   <div class="form-group">
     <label for="title">Nombre</label>
     <input value="{{nombre}}" type="text" class="form-control" id="title" placeholder="Nombre" name="nombre">
@@ -45,7 +53,7 @@
 
   <div class="form-group">
     <label for="title">Avatar</label>
-    <input value="{{url}}" type="file" class="form-control" id="urlImg">
+    <input value="{{urlimagen}}" type="file" class="form-control" id="urlImg">
   </div>
   
   <div class="form-group">

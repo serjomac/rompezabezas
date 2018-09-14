@@ -11,70 +11,62 @@
     <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 
-<h2 style="color: blue; text-align: center;  ">Selecciona Rompecabezas</h2>
+<div class="text-center row">
+    <img class="seleccion" src="images/seleccion.png" class="rounded letrero" alt="...">
+</div>
 
 <div class="container">
+    <a href="/"><img class="botones" src="../images/atras.png" alt="atras"></a>
     <div class="col-lg-12" id="pile">
         {{#each images}}  
-        <td> <a href="#"><img data-toggle="modal" data-target="#exampleModal" width="30%" onclick="demo({{id}})" src="{{url}}" ></a></td>
-        {{/each}}
-          
+        <td> <a href="#"><img class="imagenesr" width="30%" onclick="demo({{id}})" src="{{url}}" ></a></td>
+        {{/each}} 
     </div>
+
     <div class="form-group">
         <input type="text" class="form-control hidden" placeholder="Enter a todo" id="seleccion" name="seleccion">
     </div>
-    <div>Puntaje: </div><div id="puntaje"></div>   
+    <div><img class="botones" src="images/puntos.png" alt="..."></div><div id="puntaje"></div>
+
     <!--<div class="row">
         <a href="#" class="restart-puzzle btn btn-info col-lg-3" data-grid="2">2x2</a>
         <a href="#" class="restart-puzzle btn btn-info col-lg-3" data-grid="3">3x3</a>
         <a href="#" class="restart-puzzle btn btn-info col-lg-3" data-grid="4">4x4</a>
         <a href="#" class="restart-puzzle btn btn-info col-lg-3" data-grid="5">5x5</a>
     </div>-->
+
 </div> 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Seleccione dificultad</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-        <div class="modal-body">
-            <div class="row">
-                <button onclick="selJuego(2)" class="restart-puzzle" data-grid="2">2x2</button>
-                <button onclick="selJuego(3)" class="restart-puzzle" data-grid="3">3x3</button>
-                <button onclick="selJuego(4)" class="restart-puzzle" data-grid="4">4x4</button>
-                <button onclick="selJuego(5)" class="restart-puzzle" data-grid="5">5x5</button>
-            </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-      
-    </div>
-  </div>
-</div>
+<!--  <button disabled="disabled"><a href="/">regresar</a></button>  -->
 
-<button disabled="disabled"><a href="/">regresar</a></button>
 
 <script>
     function demo(id){
         document.getElementById("seleccion").value = id;
+        selJuego();
     }
 
-    function selJuego(variable){
+    function selJuego(){
+
+        let sel = document.getElementById("seleccion").value;
+        console.log($('#seleccion').val());
+        localStorage.setItem("juego", sel);
+
+        let url = window.origin;
+
+        $.getJSON( url+"/seleccionrompecabeza/piezas/"+localStorage.getItem("juego"), function( data ) {
+
+            console.log(data.image.piezas)
+
+            localStorage.setItem("piezas", data.image.piezas);
+
+        });
+
 
             let intentos = 0;
             localStorage.setItem("intentos", intentos);
 
-            let sel = document.getElementById("seleccion").value;
-            console.log($('#seleccion').val());
-            localStorage.setItem("juego", sel);
-            localStorage.setItem("piezas", variable);
-            console.log(variable);
-            let url = window.origin;
+            
             $.getJSON( url+ "/juego/" + sel, function( data ) {
                 console.log(data)
             });
@@ -98,8 +90,10 @@
 
             console.log(data)
 
-            $("#puntaje").html("<p>"+data.user.puntaje+"</p>");
+            $("#puntaje").html("<h1>"+data.user.puntaje+"</h1>");
 
+
+            
         });
 
     </script>

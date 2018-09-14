@@ -70,6 +70,7 @@ router.delete('/:id', (req, res) => {
 function validateTodoRenderError(req, res, callback) {
     const images = {
       descripcion: req.body.descripcion,
+      piezas: req.body.piezas,
       url: req.body.url,
       id_audios: req.body.id_audios
     };
