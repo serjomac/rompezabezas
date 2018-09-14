@@ -59,20 +59,27 @@
             alert(data.image.piezas)
 
             localStorage.setItem("piezas", data.image.piezas);
+            
+            if (localStorage.getItem("piezas") == data. image.piezas){
+            
+            
+                let intentos = 0;
+                localStorage.setItem("intentos", intentos);
+
+
+                $.getJSON( url+ "/juego/" + sel, function( data ) {
+                    console.log(data)
+                });
+
+
+                window.location.href = 'juego/'+sel;
+            
+            }
 
         });
 
 
-            let intentos = 0;
-            localStorage.setItem("intentos", intentos);
-
             
-            $.getJSON( url+ "/juego/" + sel, function( data ) {
-                console.log(data)
-            });
-            
-
-            window.location.href = 'juego/'+sel;
     }
 
 
