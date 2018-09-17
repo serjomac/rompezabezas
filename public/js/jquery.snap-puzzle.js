@@ -106,10 +106,7 @@
                             //$("#intentos").text(((o.rows * o.columns)+4-inte));
                             $("#intentos").html("<h1>"+((o.rows * o.columns)+4-inte)+"</h1>");
 
-                            if (inte === ((o.rows * o.columns)+4)){
-                                alert("PERDISTE");
-                                window.location = '/seleccionrompecabeza';
-                            }
+                            
                             $(this).removeData('slot'); },
                         stack: '.snappuzzle-piece',
                         containment: o.containment
